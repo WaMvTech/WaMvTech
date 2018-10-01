@@ -9,5 +9,9 @@ namespace WaMvTech.Controllers
     public class ComicBooksController : Controller
     {
         //: Build comic book controller
+        public string Detail()
+        {
+            return "Hello From Comic Books";
+        }
     }
 }
