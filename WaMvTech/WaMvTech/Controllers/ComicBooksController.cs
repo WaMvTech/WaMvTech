@@ -9,12 +9,12 @@ namespace WaMvTech.Controllers
     public class ComicBooksController : Controller
     {
         //: Build comic book controller
-        public string Detail()
+        public string StringDetail()
         {
             return "Hello From Comic Books";
         }
 
-        public ActionResult NewDetail()
+        public ActionResult Detail()
         {
             ViewBag.SeriesTitle = "The Amazing Spider-Man";
             ViewBag.IssueNumber = 700;
