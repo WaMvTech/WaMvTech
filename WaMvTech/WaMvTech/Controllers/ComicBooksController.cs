@@ -16,6 +16,17 @@ namespace WaMvTech.Controllers
 
         public ActionResult NewDetail()
         {
+            ViewBag.SeriesTitle = "The Amazing Spider-Man";
+            ViewBag.IssueNumber = 700;
+            ViewBag.Description = "<p>Final issue! Witness the final hour</p>";
+            ViewBag.Artists = new string[]
+            {
+                "Scripts: Dan Slott",
+                "Pencils: Humberto Ramos",
+                "Inks: Victor Olazaba",
+                "Colors: Edgar Delgado",
+                "Letters: Chris Eliopoulos"
+            };
             return View();            
         }
     }
