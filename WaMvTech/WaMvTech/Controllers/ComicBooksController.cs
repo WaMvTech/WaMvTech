@@ -4,34 +4,27 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WaMvTech.Models;
+using WaMvTech.Data;
 
 namespace WaMvTech.Controllers
 {
     public class ComicBooksController : Controller
     {
-        //: Build comic book controller
-        public string StringDetail()
+        private ComicBookRepository _comicBookRepository = null;
+
+        public ComicBooksController()
         {
-            return "Hello From Comic Books";
+            _comicBookRepository = new ComicBookRepository();
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(int? Id)
         {
-            var comicBook = new ComicBook()
+            if (Id == null)
             {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>Final issue! Witness the final hour</p>",
-                Artists = new Artist[] 
-                {
-                    new Artist() { Name = "Dan Slott", Role = "Scripts" },
-                    new Artist() { Name = "Humberto Ramos", Role = "Pencils" },
-                    new Artist() { Name = "Victor Olazaba", Role = "Inks" },
-                    new Artist() { Name = "Edgar Delgado", Role = "Colors" },
-                    new Artist() { Name = "Chris Eliopoulos", Role = "Letters" }
-                }
-            };
-
+                return HttpNotFound();
+            }
+            var comicBook = _comicBookRepository.GetComicBook( (int)Id ); 
+            
             return View(comicBook);            
         }
     }
