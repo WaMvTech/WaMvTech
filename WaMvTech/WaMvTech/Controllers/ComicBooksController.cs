@@ -13,5 +13,17 @@ namespace WaMvTech.Controllers
         {
             return "Hello From Comic Books";
         }
+
+        public ActionResult NewDetail()
+        {
+
+            if(DateTime.Today.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                return Redirect("/");
+            }
+
+            return Content("This is using the Content Result");
+            
+        }
     }
 }
