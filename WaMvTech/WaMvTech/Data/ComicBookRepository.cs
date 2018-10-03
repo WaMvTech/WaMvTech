@@ -10,6 +10,7 @@ namespace WaMvTech.Data
     {
         private static ComicBook[] _comicBooks = new ComicBook[] 
         {
+
             new ComicBook()
             {
                 Id = 0,
@@ -26,6 +27,7 @@ namespace WaMvTech.Data
                 },
                 Favorite = false
             },
+
             new ComicBook()
             {
                 Id = 1,
@@ -42,6 +44,7 @@ namespace WaMvTech.Data
                 },
                 Favorite = false
             },
+
             new ComicBook()
             {
                 Id = 2,
@@ -57,7 +60,14 @@ namespace WaMvTech.Data
                 },
                 Favorite = false
             }
-    };
+        };
+
+
+        public ComicBook[] GetComicBooks()
+        {
+            return _comicBooks;
+        }
+
 
         public ComicBook GetComicBook(int Id)
         {
@@ -71,7 +81,10 @@ namespace WaMvTech.Data
                     break;
                 }
             }
+
             return comicBookToReturn;
         }
+
+
     }
 }
