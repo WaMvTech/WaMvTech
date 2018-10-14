@@ -1,44 +1,319 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+
+
+/* OverRides */
+
+
+
+/* 1. Need to override the navbar default color */
+nav {
+    background-color:black!important;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.collection 
+a.collection-item {
+    background-color: rgba(0,0,0,0.8);
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+
+/* OverRides */
+
+
+
+
+
+
+
+
+
+/* LANDING PAGE */
+
+body {
+    background-image: url('../Images/honeycomb_background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* Backbar Styles */
-.backbar{
-  width: 100%;
-  background-color: #555;
-  margin-top: -10px;
-  height: 45px;
-}
-  .backbar .btn{
-    margin-top: 4px;
-  }
 
-/* Series List Styles */
-.series-list{
-  padding: 0;
+#content {
+    margin-top:30px;
+    margin-left:30px;
 }
 
-.series-list li{
-  list-style: none;
-  border-bottom: 1px #ddd solid;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  }
 
-.series-list li:last-child{
-  border: none;
+.outer-1 {
+    width: 700px; /* You can define it by % also */
+    height: 700px; /* You can define it by % also*/
+    position: relative;
+    border: 5px solid rgba(0, 0, 0, 0.0);
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    -webkit-animation: spin 32s linear infinite; /* Safari */
+    animation: spin 32s linear infinite;
+    overflow:hidden;
 }
+
+.inner-1 {
+    top: 10%;
+    left: 10%; /* of the container */
+    width: 80%; /* of the outer-1 */
+    height: 80%; /* of the outer-1 */
+    position: absolute;
+    border: 5px solid rgba(0, 0, 0, 0.0);
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    -webkit-animation: spin 22s linear infinite; /* Safari */
+    animation: spin 22s linear infinite;
+    
+}
+
+.inner-2 {
+    top: 20%;
+    left: 20%; /* of the container */
+    width: 60%; /* of the inner-1 */
+    height: 60%; /* of the inner-1 */
+    position: absolute;
+    border: 5px solid rgba(0, 0, 0, 0.0);
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    -webkit-animation: spin 12s linear infinite; /* Safari */
+    animation: spin 12s linear infinite;
+}
+
+.inner-3 {
+    top: 35%;
+    left: 35%; /* of the container */
+    width: 30%; /* of the inner-1 */
+    height: 30%; /* of the inner-1 */
+    position: absolute;
+    border: 5px solid rgba(0, 0, 0, 0.0);
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    -webkit-animation: spin 5s linear infinite; /* Safari */
+    animation: spin 5s linear infinite;
+}
+
+.portal_button {
+    top: 350px;
+    left: 315px; /* of the container */
+    width: 25px; /* of the inner-1 */
+    height: 25px; /* of the inner-1 */
+    position: absolute;
+    border-radius: 50%;  
+}
+
+
+
+/*Need to duplicate class hexigon for portal button */
+
+
+
+
+
+
+
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/*
+    Info Panel
+*/
+
+
+
+
+
+/* Basic styles for overall info_panel */
+.info_panel {
+    color: #fff;
+    margin-top: 200px;
+    padding: 15px;
+    max-width: 600px;
+    background-color: rgba(0, 188, 212, 0.2);
+    border: 1px solid #01579b;
+}
+
+/* Put some padding */
+.info_panel_heading {
+    padding-bottom: 15px;
+} 
+
+
+
+
+
+
+/* THE GRID */
+
+
+.grid {
+    max-width:1000px;
+    margin:200px auto;
+}
+
+:root {
+    /* Change this to change the appearance of the hexaons */
+    --hex-width: 225px;
+    --hex-between: 30px;
+    /* Other hexagon dimentions */
+    --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */ );
+    --hex-margin: calc(var(--hex-width) / 2);
+    --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */ );
+    --hex-transition: all .7s ease;
+    /* Colors */
+    --color-hex-default: #000000;
+    --color-hex-hover: #FFFFFF;
+    --color-css: #1572B6;
+    --color-html: #4FC08D;
+    --color-vuejs: #4FC08D;
+}
+
+/* Hexagons */
+.hexagon-container {  
+    display: grid;
+    grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
+    grid-auto-rows: calc(var(--hex-width) - 28.87px/2);
+    grid-gap: var(--hex-between) var(--hex-between);
+    padding-bottom: var(--hex-border);
+}
+
+.hexagon {
+    align-items: center;
+    background-color: var(--color-hex-default);
+    cursor: pointer;
+    display: flex;
+    fill: white;
+    height: var(--hex-height);
+    justify-content: center;
+    margin: var(--hex-border) 0;
+    margin-left:100%;
+    position: relative;
+    transition: var(--hex-transition);
+    width: var(--hex-width);
+}
+
+    .hexagon::after,
+    .hexagon::before {
+        border-left: var(--hex-margin) solid transparent;
+        border-right: var(--hex-margin) solid transparent;
+        content: "";
+        left: 0;
+        position: absolute;
+        transition: var(--hex-transition);
+        width: 0;
+    }
+
+    .hexagon::after {
+        border-top: var(--hex-border) solid var(--color-hex-default);
+        top: 100%;
+        width: 0;
+    }
+
+    .hexagon::before {
+        border-bottom: var(--hex-border) solid var(--color-hex-default);
+        bottom: 100%;
+    }
+
+
+
+
+    /* Changes color of rectangle inside polygon*/
+.hexagon:hover {
+     background-color: var(--color-hex-hover);
+}
+
+.hexagon:hover::after,
+.hexagon:hover::before {
+    border-top-color: var(--color-hex-hover);
+    border-bottom-color: var(--color-hex-hover);
+}
+
+.hexagon:nth-child(8n + 5),
+.hexagon:nth-child(8n + 6),
+.hexagon:nth-child(8n + 7),
+.hexagon:nth-child(8n + 8) {
+   margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
+}
+
+.hexagon > svg {
+
+    height: 80%;
+    transition: var(--hex-transition);
+}
+
+
+
+/* Colors */
+
+
+
+/* Changes color to the the polygon */
+
+.color-css {
+    background-color: rgba(13, 28, 107, 0.60);
+}
+
+    .color-css::after,
+    .color-css::before {
+        border-top-color: rgba(13, 28, 107, 0.60);
+        border-bottom-color: rgba(13, 28, 107, 0.60);
+    }
+
+
+/* Changes the color of the icon inside the poloygon */
+.color-css:hover {
+   fill: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+.color-vuejs {
+    background-color: var(--color-vuejs);
+}
+
+    .color-vuejs::after,
+    .color-vuejs::before {
+        border-top-color: var(--color-vuejs);
+        border-bottom-color: var(--color-vuejs);
+    }
+
+    .color-vuejs:hover {
+        fill: var(--color-vuejs);
+    }
+
+
+
+

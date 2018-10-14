@@ -5,46 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Comic Book Gallery</title>
     <link href="~/Content/site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/portal.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Comic Book Gallery", "Index", "ComicBooks", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Add menu items here -->
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    @if (ViewBag.ShowBackBar != null && ViewBag.ShowbackBar)
-    {
-        <div class="backbar">
-            <div class="container">
-               @Html.ActionLink("Return To List", "Index", null, new { @class = "btn btn-default"} );
-            </div>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="@Url.Action("Index","Landing")"class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">     
+            </ul>
         </div>
-    }
-    <div class="container body-content">
+    </nav>
+
+    <div class="container-fluid">
+
         @RenderBody()
 
-        <hr />
 
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Comic Book Gallery</p>
-        </footer>
+        <!--Footer-->
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Washington Military Veteran Tech</p>
+            </footer>
+        <!--Footer-->
+
 
     </div>
+
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>

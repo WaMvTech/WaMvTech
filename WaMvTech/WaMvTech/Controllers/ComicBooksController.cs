@@ -10,8 +10,11 @@ namespace WaMvTech.Controllers
 {
     public class ComicBooksController : Controller
     {
+        //: Properties
         private ComicBookRepository _comicBookRepository = null;
 
+
+        //: Init Constructor
         public ComicBooksController()
         {
             _comicBookRepository = new ComicBookRepository();
@@ -20,16 +23,22 @@ namespace WaMvTech.Controllers
 
         public ActionResult Index()
         {
+
             var comicBooks = _comicBookRepository.GetComicBooks();
+
             return View(comicBooks);
+
         }
 
         public ActionResult Detail(int? Id)
         {
+
             if (Id == null)
             {
                 return HttpNotFound();
             }
+
+            //:This is using the GetComicBook method from the Repository to get the comic book equal to the id passed.
             var comicBook = _comicBookRepository.GetComicBook( (int)Id ); 
             
             return View(comicBook);            

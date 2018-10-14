@@ -1,0 +1,86 @@
+﻿
+
+
+.portal {
+    align-items: center;
+    background-color: var(--color-hex-default);
+    cursor: pointer;
+    display: flex;
+    fill: white;
+    height: calc(100px / 1.73 /* sqrt(3) */ );
+    justify-content: center;
+    margin: var(--hex-border) 0;
+    margin-left: 100%;
+    position: relative;
+    transition: var(--hex-transition);
+    width: 100px;
+}
+
+    .portal::after,
+    .portal::before {
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        content: "";
+        left: 0;
+        position: absolute;
+        transition: var(--hex-transition);
+        width: 0;
+    }
+
+    .portal::after {
+        border-top: 30px solid var(--color-hex-default);
+        top: 100%;
+        width: 0;
+    }
+
+    .portal::before {
+        border-bottom: 30px solid var(--color-hex-default);
+        bottom: 100%;
+    }
+
+.test {
+    height:100px;
+}
+
+
+    /* Changes color of rectangle inside polygon*/
+    .portal:hover {
+        background-color: var(--color-hex-hover);
+    }
+
+        .portal:hover::after,
+        .portal:hover::before {
+            border-top-color: var(--color-hex-hover);
+            border-bottom-color: var(--color-hex-hover);
+        }
+
+   
+
+    .portal > svg {
+        height: 75%;
+        transition: var(--hex-transition);
+    }
+
+
+
+/* Colors */
+
+
+
+/* Changes color to the the polygon */
+
+.color-css {
+    background-color: rgba(13, 28, 107, 0.60);
+}
+
+    .color-css::after,
+    .color-css::before {
+        border-top-color: rgba(13, 28, 107, 0.60);
+        border-bottom-color: rgba(13, 28, 107, 0.60);
+    }
+
+
+    /* Changes the color of the icon inside the poloygon */
+    .color-css:hover {
+        fill: blue;
+    }
